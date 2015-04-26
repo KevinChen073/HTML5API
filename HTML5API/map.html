@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>google Map</title>
+    <link href="css/main.css" rel="stylesheet">
+    <script src="http://api.map.baidu.com/components?ak=84a4a1797dd974e91d9d17db507a6c5c&v=1.0"></script>
+    <script src="js/ajax.js"></script>
+</head>
+<script>
+    navigator.geolocation.getCurrentPosition(updateLocation,handleLocationError);
+</script>
+<body>
+<p id="timestamp"></p>
+<lbs-map center="23.0643,113.387" zoom="11" />
+</body>
+
+</html>

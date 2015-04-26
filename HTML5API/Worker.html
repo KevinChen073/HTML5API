@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Worker的API</title>
+    <script src="js/jquery-2.1.3.js"></script>
+</head>
+<body>
+    <h3>Worker的API</h3>
+    <p id="support"></p>
+    <hr/>
+    <button id="stop">
+        Stop Task
+    </button>
+    <button id ="post">
+        post msg
+    </button>
+    <hr/>
+    <form action="move.php" method="post"
+          enctype="multipart/form-data">
+        <p><label for="file">Filename:</label>
+        <input type="file" name="file" id="file" />
+        </p>
+        <p></p>
+        <br />
+        <input type="submit" name="submit" value="Submit" />
+    </form>
+    <hr/>
+    <!--ajax的测试-->
+    <h3>Ajax测试</h3>
+    <h5>javascript版本</h5>
+    <p id="change">这是原始文本</p>
+    <button onclick="Ajax()">Ajax</button>
+    <hr/>
+    <h5>这是jQuery版本</h5>
+    <p id="change2">这是原始文本</p>
+    <button onclick="Jquery()">Jquery</button>
+</body>
+<script>
+    loadDemo();
+    function loadDemo(){
+        if (typeof (Worker) !== "undefined"){
+            document.getElementById("support").innerHTML = "Your browser support Web Workers.";
+        } else {
+            document.getElementById("support").innerHTML = "Don't support Web Workers.";
+        }
+    }
+
+
+    function Ajax(){
+        var xmlhttp;
+        if (window.XMLHttpRequest)
+        {// code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp=new XMLHttpRequest();
+        }
+        else
+        {// code for IE6, IE5
+            xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function(){
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
+                document.getElementById("change").innerHTML = xmlhttp.responseText;
+            }
+        }
+        xmlhttp.open('get',"ajax.php",true);
+        xmlhttp.send();
+    }
+
+    function Jquery(){
+            $("#change2").load("ajax.php");
+    }
+
+</script>
+</html>

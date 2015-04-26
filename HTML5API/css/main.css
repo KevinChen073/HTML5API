@@ -1,0 +1,27 @@
+.video1{
+    width: 500px;
+}
+
+.float-right{
+    float: right;
+}
+
+.inline{
+    display: inline;
+}
+
+body{
+    margin-left: 10%;
+    margin-right: 10%;
+    padding: 5%;
+    height: 100%;
+
+    border: 1px solid;
+    border-radius: 10px;
+
+}
+
+#heatmap {
+    background-image: url("../src/mapbg.jpg");
+    border: 1px solid;
+}

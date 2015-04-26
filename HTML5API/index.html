@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/ajax.js"></script>
+    <link rel="stylesheet" href="css/main.css" type="text/css">
+</head>
+<body>
+
+<div id="ajax"><h3 id="change_text">Let AJAX change this text</h3>
+<button type="button" onclick="loadXMLDoc()">Change Content</button>
+</div>
+<hr/>
+
+<h3>Video和Audio的API</h3>
+<div id="video_audio">
+    <p>Video</p>
+    <video class="video1" src="src/test.mp4" controls>
+        Your browser does not support HTML5 video.
+    </video>
+    <p class="inline"><a href="video.html">视频Timeline样例</a></p>
+</div>
+<div>
+    <p>Audio</p>
+    <audio controls src="src/xie.mp3">
+        An audio clip from Johann Sebastian bach.
+    </audio>
+</div>
+
+<hr/>
+
+<h3>地理位置API</h3>
+<p id="support"></p>
+<div>
+    <p id="latitude"></p>
+    <p id="longitude"></p>
+    <p id="accuracy"></p>
+    <p id="timestamp"></p>
+</div>
+
+<hr/>
+
+<h3><a href="canvas.html">Canvas的API</a></h3>
+
+<script>
+    loadDemo();
+    navigator.geolocation.getCurrentPosition(updateLocation,handleLocationError);
+</script>
+
+
+</body>
+
+</html>
